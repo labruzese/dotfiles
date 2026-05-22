@@ -1,0 +1,11 @@
+{
+	"runtime": {
+		"version": "LuaJIT"
+	},
+	"workspace": {
+		"library": [
+			"$VIMRUNTIME/lua",
+			"~/.local/share/nvim/pack/core/opt"
+		]
+	}
+}
