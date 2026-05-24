@@ -247,8 +247,8 @@ hl.bind(mainMod .. "+ E", hl.dsp.focus({workspace = 3}))
 hl.bind(mainMod .. "+ R", hl.dsp.focus({workspace = 4}))
 hl.bind(mainMod .. "+ X", hl.dsp.focus({workspace = 5}))
 
-hl.bind("ALT + mouse:272",     hl.dsp.window.drag(),   { mouse = true })
-hl.bind("ALT + mouse:272",     hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. "+ mouse:272",     hl.dsp.window.drag(),   { mouse = true })
+hl.bind(mainMod .. "+ mouse:273",     hl.dsp.window.resize(), { mouse = true })
 hl.bind(mainMod .. "+ mouse_down", hl.dsp.focus({workspace = "e+1"}))
 hl.bind(mainMod .. "+ mouse_up",   hl.dsp.focus({workspace = "e-1"}))
 
