@@ -68,6 +68,3 @@ vim.keymap.set('n', '-', '<cmd>Oil<CR>')
 
 -- treesitter
 require('autocmds.autosyntax')
-require('nvim-treesitter').install({ 'gotmpl' })
-
-
