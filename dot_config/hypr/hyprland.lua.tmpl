@@ -273,7 +273,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 
 {{ if eq .machine "laptop" }}
 -- Laptop: lock when lid closes
-hl.bind(", switch:Lid Switch", hl.dsp.exec_cmd(app_lock), { locked = true })
+hl.bind("switch:Lid Switch", hl.dsp.exec_cmd(app_lock), { locked = true })
 {{- end }}
 
 
