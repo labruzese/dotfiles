@@ -14,7 +14,7 @@ vim.lsp.config['lua_ls'] = {
 vim.lsp.config['rust-analyzer'] = {
 	cmd = { 'rust-analyzer' },
 	filetypes = { 'rust' },
-	root_markers = { 'Cargo.toml', '.git' }
+	root_markers = { '.rust-analyzer-root', 'Cargo.toml', '.git' }
 }
 
 vim.lsp.config['clangd'] = {
