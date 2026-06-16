@@ -29,3 +29,6 @@ end
 require('lsp')
 require('plugins')
 require('statusline')
+
+--- consider removing
+vim.o.exrc = true
