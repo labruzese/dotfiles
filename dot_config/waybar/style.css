@@ -1,0 +1,193 @@
+/* Gruvbox (base16) palette */
+@define-color base00 #32302f;
+@define-color base01 #3c3836;
+@define-color base02 #504945;
+@define-color base03 #665c54;
+@define-color base04 #bdae93;
+@define-color base05 #d5c4a1;
+@define-color base06 #ebdbb2;
+@define-color base07 #fbf1c7;
+@define-color base08 #fb4934;
+@define-color base09 #fe8019;
+@define-color base0A #fabd2f;
+@define-color base0B #b8bb26;
+@define-color base0C #8ec07c;
+@define-color base0D #83a598;
+@define-color base0E #d3869b;
+@define-color base0F #d65d0e;
+
+window#waybar {
+    background: @base00;
+    opacity: 1;
+    color: @base05;
+    font-size: 15px;
+    min-height: 10px;
+    font-family: "JetbrainsMono Nerd Font";
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#custom-launcher {
+    font-size: 24px;
+    padding: 0px 5px 0px 10px;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 2px solid @base03;
+    transition: none;
+    color: @base0E;
+    background: @base00;
+}
+
+#custom-launcher:hover {
+    color: @base0D;
+}
+
+#workspaces {
+    font-size: 4px;
+    margin-bottom: 0px;
+    border-radius: 0px 10px 10px 0px;
+    background: @base00;
+    transition: none;
+}
+
+#workspaces button {
+    transition: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: @base05;
+    background: transparent;
+    font-size: 20px;
+    border-radius: 2px;
+}
+
+#workspaces button.occupied {
+    transition: none;
+    color: @base08;
+    background: transparent;
+}
+
+#workspaces button.visible {
+    color: @base05;
+}
+
+#workspaces button:hover {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: @base05;
+    border-color: @base04;
+}
+
+#workspaces button.active {
+    color: @base0E;
+}
+
+#workspaces button.urgent {
+    color: @base08;
+}
+
+/* --- Modules --- */
+
+#window {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px 0px 0px 10px;
+    color: @base0E;
+}
+
+#cpu {
+    padding-left: 10px;
+    margin-bottom: 0px;
+    padding-right: 10px;
+    border-radius: 0px;
+    transition: none;
+    color: @base0D;
+    background: @base00;
+}
+
+#custom-gpu {
+    padding-left: 10px;
+    margin-bottom: 0px;
+    padding-right: 10px;
+    border-radius: 0px;
+    transition: none;
+    color: @base0E;
+    background: @base00;
+}
+
+#memory {
+    padding-left: 0px;
+    margin-bottom: 0px;
+    padding-right: 10px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: @base07;
+    background: @base00;
+}
+
+#custom-media {
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    transition: none;
+    color: @base0B;
+    background: @base00;
+}
+
+#tray {
+    margin-left: 8px;
+    padding-left: 10px;
+    margin-bottom: 0px;
+    padding-right: 10px;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 2px solid @base03;
+    transition: none;
+    color: @base0C;
+    background: @base00;
+}
+
+#custom-updates {
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    transition: none;
+    color: @base08;
+    background: @base00;
+}
+
+#pulseaudio {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border-right: 2px solid @base03;
+    transition: none;
+    color: @base05;
+    background: @base00;
+}
+
+#clock {
+    font-family: "Digital Display";
+    font-size: 24px;
+    padding-left: 10px;
+    padding-right: 9px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    transition: none;
+    color: @base05;
+    background: @base00;
+    border-radius: 10px;
+}
+
+#clock.date {
+    font-family: JetbrainsMono;
+    margin-left: 8px;
+    font-size: 15px;
+    color: @base0E;
+}

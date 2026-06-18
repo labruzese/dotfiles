@@ -1,0 +1,134 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mode": "dock",
+    "reload-style-on-change": true,
+
+    "modules-left": [
+	"custom/launcher",
+	"hyprland/workspaces",
+	"hyprland/window"
+    ],
+    "modules-center": [
+	"clock#time"
+    ],
+    "modules-right": [
+	"custom/media",
+	"clock#date",
+	"custom/updates",
+	"tray",
+	"pulseaudio",
+	"cpu",
+	"memory"
+	{{- if eq .machine "laptop" }},
+	"battery"
+	{{- end }}
+    ],
+
+    // --- Workspaces (numbered, matches the Lua workspace_rules) ---
+    "hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+	    "1": " ",
+	    "2": " ",
+	    "3": " ",
+	    "4": " ",
+	    "5": " ",
+	    "special": " "
+	},
+	"on-click": "activate",
+	"sort-by": "number",
+	"persistent-workspaces": {
+	    "{{ if eq .machine "laptop" }}eDP-1{{ else }}DP-3{{ end }}": [1, 2, 3, 4, 5]
+	}
+    },
+    "hyprland/window": {
+	"format": " {}",
+	"separate-outputs": true,
+	"max-length": 50
+    },
+
+    // --- Right side ---
+    "custom/media": {
+	"format": "{icon} {text}",
+	"return-type": "json",
+	"max-length": 50,
+	"format-icons": {
+	    "spotify": " ",
+	    "spotify-paused": " ",
+	    "default": "󰓃 ",
+	    "paused": " "
+	},
+	"escape": true,
+	"exec": "~/.config/waybar/scripts/mediaplayer.py -vvv",
+	"on-click": "playerctl play-pause",
+	"on-click-right": "pkill -SIGUSR1 -f mediaplayer.py"
+    },
+    "clock#date": {
+	"tooltip": false,
+	"format": "{:%b %d}"
+    },
+    "custom/updates": {
+	"format": "<b>{}</b>{icon}",
+	"return-type": "json",
+	"format-icons": {
+	    "has-updates": "<big> 󱍷</big>",
+	    "updated": "<big> </big>"
+	},
+	"exec": "waybar-module-pacman-updates --no-zero-output",
+	"on-click": "hyprctl dispatch exec '~/.config/hypr/scripts/wezterm-overlay.sh paru'"
+    },
+    "tray": {
+	"icon-size": 18,
+	"spacing": 10
+    },
+    "pulseaudio": {
+	"tooltip": false,
+	"format": "{format_source}",
+	"format-source": "         ",
+	"format-source-muted": " ",
+	"on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    "cpu": {
+	"interval": 15,
+	"format": " {avg_frequency}",
+	"max-length": 10
+    },
+    "memory": {
+	"interval": 30,
+	"format": " {used}",
+	"max-length": 10
+    },
+
+    // --- Laptop-only ---
+    "battery": {
+	"interval": 60,
+	"states": { "warning": 30, "critical": 15 },
+	"format": "{capacity}% bat",
+	"format-warning": "{capacity}% bat  {time}",
+	"format-critical": "{capacity}% bat  {time}",
+	"format-time": "{H}h {M}m",
+	"format-icons": ["", "", "", "", ""],
+	"max-length": 25
+    },
+
+    // --- Left side ---
+    "custom/launcher": {
+	"tooltip": false,
+	"format": " ",
+	"on-click": "pkill wofi || ~/.config/hypr/scripts/powermenu.sh",
+	"on-click-right": "pkill wofi || wofi --show drun"
+    },
+
+    // --- Defined but not in the bar; ---
+    "custom/gpu": {
+	"exec": "~/.config/waybar/scripts/gpu.sh",
+	"interval": 15,
+	"format": "{}",
+	"tooltip": false
+    },
+    "clock#time": {
+	"tooltip": false,
+	"format": "{:%I:%M}"
+    }
+}
