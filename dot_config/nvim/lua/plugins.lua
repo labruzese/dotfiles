@@ -1,5 +1,15 @@
 local gh = function(x) return 'git@github.com:' .. x end
 
+-- telescope fzf compile if not present
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+    if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
+      vim.system({ 'make' }, { cwd = ev.data.path }):wait()
+    end
+  end,
+})
+
 vim.pack.add({
 	gh('ellisonleao/gruvbox.nvim'),
 	gh('kylechui/nvim-surround'),
@@ -32,15 +42,6 @@ vim.keymap.set('n', '<A-r>', function() hpn:list():select(4) end)
 vim.keymap.set('n', '<C-S-P>', function() hpn:list():prev() end)
 vim.keymap.set('n', '<C-S-N>', function() hpn:list():next() end)
 
--- telescope fzf compile if not present
-vim.api.nvim_create_autocmd('PackChanged', {
-  callback = function(ev)
-    local name, kind = ev.data.spec.name, ev.data.kind
-    if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
-      vim.system({ 'make' }, { cwd = ev.data.path }):wait()
-    end
-  end,
-})
 -- telescope
 require('telescope').setup({
   extensions = {
