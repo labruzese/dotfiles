@@ -14,7 +14,12 @@ vim.lsp.config['lua_ls'] = {
 vim.lsp.config['rust-analyzer'] = {
 	cmd = { 'rust-analyzer' },
 	filetypes = { 'rust' },
-	root_markers = { '.rust-analyzer-root', 'Cargo.toml', '.git' }
+	root_markers = { '.rust-analyzer-root', 'Cargo.toml', '.git' },
+	settings = {
+	    ['rust-analyzer'] = {
+		check = { command = "clippy" }
+	    },
+	}
 }
 
 vim.lsp.config['clangd'] = {

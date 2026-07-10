@@ -22,6 +22,6 @@ vim.api.nvim_create_autocmd('FileType', {
         if vim.api.nvim_win_get_buf(0) == ev.buf then
             vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         end
-        vim.bo[ev.buf].indentexpr = 'v:lua.vim.treesitter.indentexpr()'
+        -- vim.bo[ev.buf].indentexpr = 'v:lua.vim.treesitter.indentexpr()'
     end,
 })
