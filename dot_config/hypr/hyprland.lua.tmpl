@@ -2,7 +2,6 @@
 -- Laptop
 local primary_monitor          = "eDP-1"
 local primary_monitor_mode     = "preferred"
-local secondary_monitor        = "HDMI-1"
 local screenshot_dir           = "~/screenshot-history"
 local secondary_terminal       = "foot ssh desktop"
 local gaps_in                  = 1
@@ -13,7 +12,6 @@ local input_force_no_accel     = false
 -- Desktop
 local primary_monitor          = "DP-3"
 local primary_monitor_mode     = "2560x1440@280"
-local secondary_monitor        = "DP-2"
 local screenshot_dir           = "/data/screenshot-history"
 local secondary_terminal       = "foot"
 local gaps_in                  = 2
@@ -160,10 +158,11 @@ hl.monitor({
 })
 
 hl.monitor({
-    output   = secondary_monitor,
+    output   = "HDMI-1",
     mode     = "preferred",
     position = "auto-right",
-    scale    = "1"
+    scale    = "1",
+    mirror   = primary_monitor,
 })
 
 -- Window rules
