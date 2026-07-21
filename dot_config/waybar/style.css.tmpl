@@ -16,6 +16,8 @@
 @define-color base0E #d3869b;
 @define-color base0F #d65d0e;
 
+@define-color accent {{ if eq .machine "laptop" }} @base0A {{ else }} @base0E {{ end }}
+
 window#waybar {
     background: @base00;
     opacity: 1;
@@ -35,7 +37,7 @@ window#waybar.hidden {
     border-radius: 10px 0px 0px 10px;
     border-right: 2px solid @base03;
     transition: none;
-    color: @base0E;
+    color: @accent;
     background: @base00;
 }
 
@@ -80,7 +82,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    color: @base0E;
+    color: @accent;
 }
 
 #workspaces button.urgent {
@@ -93,7 +95,7 @@ window#waybar.hidden {
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px 0px 0px 10px;
-    color: @base0E;
+    color: @accent;
 }
 
 #cpu {
@@ -112,7 +114,7 @@ window#waybar.hidden {
     padding-right: 10px;
     border-radius: 0px;
     transition: none;
-    color: @base0E;
+    color: @accent;
     background: @base00;
 }
 
@@ -189,5 +191,5 @@ window#waybar.hidden {
     font-family: JetbrainsMono;
     margin-left: 8px;
     font-size: 15px;
-    color: @base0E;
+    color: @accent;
 }
