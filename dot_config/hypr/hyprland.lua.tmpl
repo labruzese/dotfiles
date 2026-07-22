@@ -20,9 +20,11 @@ local input_accel_profile      = "flat"
 local input_force_no_accel     = true
 {{- end }}
 
+local config_dir = os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME") .. "/.config")
+local hypr_dir = config_dir .. "/hypr"
 -- Apps
 local app_terminal     = "foot"
-local app_powermenu    = "./scripts/powermenu.sh"
+local app_powermenu    = hypr_dir .. "/scripts/powermenu.sh"
 local app_menu         = "pkill wofi || wofi --show drun"
 local app_lock         = "hyprlock"
 local app_wallpaper    = "hyprpaper"
