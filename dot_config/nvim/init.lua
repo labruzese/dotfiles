@@ -26,6 +26,8 @@ if os.getenv("SSH_TTY") then
   }
 end
 
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+
 require('lsp')
 require('plugins')
 require('statusline')
