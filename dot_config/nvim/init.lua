@@ -31,6 +31,3 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 require('lsp')
 require('plugins')
 require('statusline')
-
---- consider removing
-vim.o.exrc = true
