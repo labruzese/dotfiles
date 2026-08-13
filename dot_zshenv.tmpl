@@ -1,12 +1,10 @@
-export ZSH="$HOME/.oh-my-zsh"
-export TERM=foot
+export EDITOR=nvim
+export VISUAL=nvim
+export MANPAGER="nvim +Man!"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 {{- if eq .machine "desktop" }}
-if uwsm check may-start 1>/dev/null && [ -z "${SSH_CONNECTION}" ]; then
-    exec uwsm start hyprland.desktop
-fi
 {{- else if eq .machine "laptop" }}
 {{- else if eq .machine "csug" }}
 {{- end }}
