@@ -25,7 +25,6 @@
 	{{- end }}
     ],
 
-    // --- Workspaces (numbered, matches the Lua workspace_rules) ---
     "hyprland/workspaces": {
 	"format": "{icon}",
 	"format-icons": {
@@ -36,10 +35,10 @@
 	    "5": " ",
 	    "special": " "
 	},
-	"on-click": "hl.dsp.focus({window='address:$address'})",
+	"on-click": "activate",
 	"sort-by": "number",
 	"persistent-workspaces": {
-	    "{{ if eq .machine "laptop" }}eDP-1{{ else }}DP-3{{ end }}": [1, 2, 3, 4, 5]
+	    {{ if eq .machine "laptop" }}"eDP-1"{{ else }}"DP-3"{{ end }}: [1, 2, 3, 4, 5]
 	}
     },
     "hyprland/window": {
@@ -76,7 +75,7 @@
 	    "updated": "<big> </big>"
 	},
 	"exec": "waybar-module-pacman-updates --no-zero-output",
-	"on-click": "hyprctl dispatch exec '~/.config/hypr/scripts/wezterm-overlay.sh paru'"
+	"on-click": "hyprctl dispatch 'hl.exec_cmd('foot paru -Syu')"
     },
     "tray": {
 	"icon-size": 18,
@@ -92,12 +91,12 @@
     "cpu": {
 	"interval": 15,
 	"format": " {avg_frequency}",
-	"max-length": 10
+	"max-length": 6
     },
     "memory": {
 	"interval": 30,
 	"format": " {used}",
-	"max-length": 10
+	"max-length": 6
     },
 
     // --- Laptop-only ---
