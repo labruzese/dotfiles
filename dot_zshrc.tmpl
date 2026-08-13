@@ -5,9 +5,10 @@ bindkey -v
 
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 KEYTIMEOUT=15
-MODE_INDICATOR="%F{blue} %f"
-INSERT_MODE_INDICATOR="%F{green} %f"
+MODE_INDICATOR="%F{blue}%(!.#.$)%f"
+INSERT_MODE_INDICATOR="%F{green}%(!.#.$)%f"
 VI_MODE_CURSOR_VISUAL=0
+
 plugins=(
     vi-mode
     zsh-syntax-highlighting
@@ -67,13 +68,14 @@ alias trash='gio trash'
 alias copy='wl-copy'
 
 [[ ! -r '/home/sky/.opam/opam-init/init.zsh' ]] || source '/home/sky/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-{{- if eq .machine "laptop" }}
+
+{{- else if eq .machine "laptop" }}
 
 #####################################
 # LAPTOP
 #####################################
 
-{{- if eq .machine "csug" }}
+{{- else if eq .machine "csug" }}
 
 #####################################
 # CSUG SERVER 
