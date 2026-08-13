@@ -1,0 +1,7 @@
+{{- if eq .machine "desktop" }}
+if uwsm check may-start 1>/dev/null && [ -z "${SSH_CONNECTION}" ]; then
+    exec uwsm start hyprland.desktop
+fi
+{{- else if eq .machine "laptop" }}
+{{- else if eq .machine "csug" }}
+{{- end }}
