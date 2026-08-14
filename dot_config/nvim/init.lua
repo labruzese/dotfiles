@@ -28,6 +28,9 @@ end
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { noremap = true })
 
+vim.opt.exrc = true
+vim.opt.secure = true
+
 require('lsp')
 require('plugins')
 require('statusline')
