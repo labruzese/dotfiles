@@ -63,9 +63,6 @@ PROMPT='%(?.%f.%F{red}<%?>%f)'"$PROMPT"
 #####################################
 
 export PATH="$HOME/scripts:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 [ -f "/home/sky/.ghcup/env" ] && . "/home/sky/.ghcup/env" # ghcup-env
 
 alias trash='gio trash'
