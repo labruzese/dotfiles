@@ -103,13 +103,27 @@
     "battery": {
 	"interval": 60,
 	"states": { "warning": 30, "critical": 15 },
-	"format": "{capacity}% bat",
-	"format-warning": "{capacity}% bat - {time}",
-	"format-critical": "{capacity}% bat - {time}",
+	"format-full": "{capacity}% bat=",
+	"format-plugged": "{capacity}% bat↑nc",
+	"format-charging": "{capacity}% bat↑",
+	"format-discharging": "{capacity}% bat↓",
+	"format-charging-warning": "{capacity}% bat↑{time}",
+	"format-charging-critical": "{capacity}% bat↑{time}",
+	"format-discharging-warning": "{capacity}% bat↓{time}",
+	"format-discharging-critical": "{capacity}% bat↓{time}",
+	"format-not-charging": "{capacity}% bat↓nc",
+	"format-unknown": "{capacity}% bat?unkwn",
+	"events": {
+	    "on-discharging-warning": "notify-send -u normal 'battery' 'low battery'",
+	    "on-discharging-critical": "notify-send -u critical 'battery' 'very low battery :('",
+	    "on-discharging": "notify-send -u low 'power switch' 'discharging'",
+	    "on-charging": "notify-send -u low 'power switch' 'charging'"
+	},
 	"format-time": "{H}h {M}m",
 	"format-icons": ["", "", "", "", ""],
 	"max-length": 25
     },
+
 
     // --- Left side ---
     "custom/launcher": {
