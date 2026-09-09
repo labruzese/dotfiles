@@ -1,4 +1,6 @@
 README.md
 
+.config/nvim/nvim-pack-lock.json
+
 .config/*/.git
 .config/*/.git/**
