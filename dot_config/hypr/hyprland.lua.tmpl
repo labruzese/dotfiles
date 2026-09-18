@@ -209,8 +209,13 @@ hl.workspace_rule({ workspace = "5", monitor = primary_monitor, default = true, 
 -- Keybindings
 local mainMod = "SUPER"
 
+hl.bind("SUPER + semicolon", hl.dsp.submap("vbar"))
+hl.define_submap("vbar", function()
+  hl.bind("escape", hl.dsp.submap("reset"))
+end)
+
 -- defaults for extra workspaces that get spawned
-for i = 1, 10 do 
+for i = 1, 10 do
     local key = i % 10
     hl.bind(mainMod .. "+" .. key, hl.dsp.focus({workspace = i}))
     hl.bind(mainMod .. "+ SHIFT +" .. key, hl.dsp.window.move({workspace = i}))
