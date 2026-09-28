@@ -1,2 +1,9 @@
 CompileFlags:
   Add: [-Wall, -Wextra]
+Diagnostics:
+  ClangTidy:
+    Add: '*'
+    Remove: []
+
+Documentation:
+  CommentFormat: Doxygen
