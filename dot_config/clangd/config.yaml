@@ -2,7 +2,7 @@ CompileFlags:
   Add: [-Wall, -Wextra]
 Diagnostics:
   ClangTidy:
-    Add: '*'
+    Add: []
     Remove: []
 
 Documentation:
