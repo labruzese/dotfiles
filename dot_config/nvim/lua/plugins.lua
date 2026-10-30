@@ -1,4 +1,4 @@
-local gh = function(x) return 'git@github.com:' .. x end
+local gh = function(x) return 'https://github.com/' .. x end
 
 -- telescope fzf compile if not present
 vim.api.nvim_create_autocmd('PackChanged', {
