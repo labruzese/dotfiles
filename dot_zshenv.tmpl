@@ -2,12 +2,15 @@ export EDITOR=nvim
 export VISUAL=nvim
 export MANPAGER="nvim +Man!"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.elan/bin:$PATH"
+source "$HOME/.cargo/env"
+source "$HOME/.elan/env"
 
 {{- if eq .machine "desktop" }}
 {{- else if eq .machine "laptop" }}
 {{- else if eq .machine "csug" }}
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export OPENMPI_HOME="/usr/lib64/openmpi"
+export PATH="/usr/lib64/openmpi/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/lib64/openmpi/lib:$LD_LIBRARY_PATH"
 {{- end }}
