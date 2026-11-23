@@ -4,14 +4,11 @@ if ! killall wofi 2>/dev/null; then
   :
 fi
 
-options="Lock\nSleep\nReboot\nShutdown\nLogout"
+options="Sleep\nReboot\nShutdown\nLogout"
 
 selected=$(echo -e "$options" | wofi --dmenu)
 
 case $selected in
-    "Lock")
-        hyprlock 
-        ;;
     "Sleep")
         systemctl suspend
         ;;
@@ -22,6 +19,6 @@ case $selected in
         systemctl poweroff
         ;;
     "Logout")
-        hyprctl dispatch exit
+	hyprshutdown -t 'Shutting down Hyprland session'
         ;;
 esac

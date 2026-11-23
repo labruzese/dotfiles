@@ -4,9 +4,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 {{- if eq .machine "desktop" }}
-if uwsm check may-start 1>/dev/null && [ -z "${SSH_CONNECTION}" ]; then
-    exec uwsm start hyprland.desktop
-fi
 {{- else if eq .machine "laptop" }}
 if uwsm check may-start 1>/dev/null && [ -z "${SSH_CONNECTION}" ]; then
     exec uwsm start hyprland.desktop
